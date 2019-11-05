@@ -1,9 +1,9 @@
 <template>
-  <v-app >
+
     <componet :is="layout" >
       <router-view  />
     </componet>
-  </v-app>
+
 </template>
 
 <script>
