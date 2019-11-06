@@ -2,7 +2,8 @@
 import P404 from '@/views/P404.vue'
 import Login from '@/views/Login.vue'
 import SingIn from '@/views/SingIn.vue'
-import Home from '../views/Home.vue'
+import Home from '@/views/Home.vue'
+import Chats from '@/views/Chats.vue'
 
 export default  [
     {
@@ -20,6 +21,14 @@ export default  [
 {
     path: '/Home',
     component: Home,
+    // beforeEnter: Auth,
+    meta: {
+        layout:"home"
+    }
+},
+{
+    path: '/Chats',
+    component: Chats,
     // beforeEnter: Auth,
     meta: {
         layout:"home"

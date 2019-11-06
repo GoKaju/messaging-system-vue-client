@@ -18,10 +18,8 @@
   }
 </script>
 <style >
-/* @font-face {
-    font-family: Grinched;
-    src: url("assets/GrinchedRegular.otf") format("opentype");
-} */
+@import url('https://fonts.googleapis.com/css?family=McLaren&display=swap&subset=latin-ext');
+
 html::-webkit-scrollbar,body::-webkit-scrollbar{
   width: 0px
 }
@@ -36,7 +34,7 @@ html::-webkit-scrollbar,body::-webkit-scrollbar{
 
 .scroll::-webkit-scrollbar
 {
-	width: 6px;
+	width: 5px;
 	background-color:transparent;
 }
 
@@ -53,6 +51,7 @@ html, body, #app{
   margin:0;
   display: flex;
   flex-direction: column;
+  font-family:  'McLaren';
 
 }
 .all-100,.v-application--wrap{
@@ -60,7 +59,7 @@ height: 100%;
 width: 100%;
 }
 #app {
-  font-family:  Helvetica, Arial, sans-serif;
+
   background-color: #F4F5F7;
   color: #091E42;
   align-items: center;
