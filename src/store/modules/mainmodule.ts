@@ -1,4 +1,5 @@
 import store from '@/store'
+import router from '@/router'
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators'
 
 import { http } from "@/axios";
@@ -28,20 +29,23 @@ export default class MainModule extends VuexModule {
     this.context.commit('setUser', {})
     this.context.commit('setError', '') 
     this.context.commit('setLoading', true)
-
-
-   const response=  await http.post('/Login', {
-        payload: {
-            username,
-            password
-        }
+    
+    const response=  await http.get('/user/adminPoligran', {
+      // payload: {
+        //     username,
+        //     password
+        // }
       })
-      if(response.status !== 200)
-      this.context.commit('setError', response.data.error|| response.statusText)
-
-      this.context.commit('setUser', response.data)
-
-    this.context.commit('setLoading', false)
+      if(response.status !== 200){
+        this.context.commit('setError', response.data.error|| response.statusText)
+      }
+      else{
+        this.context.commit('setUser', response.data)
+        router.push('/Home')
+      }
+      
+      this.context.commit('setLoading', false)
+      router.push('/Home')
   }
 
 

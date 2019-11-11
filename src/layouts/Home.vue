@@ -4,20 +4,27 @@
     <div class="content scroll">
         <slot/>
     </div>
-
-
+    
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapGetters } from "vuex";
+import { getModule } from "vuex-module-decorators";
 
 import DNavigationDrawer from '@/components/DNavigationDrawer.vue'
+import MainModule from "@/store/modules/mainModule";
+
+const main = getModule(MainModule);
 
 export default Vue.extend({
     components:{
        DNavigationDrawer
+    },
+    computed:{
+      user:()=> main.user,
+      error:()=> main.error,
+      isloading:()=>main.isLoading,
     },
 });
 </script>

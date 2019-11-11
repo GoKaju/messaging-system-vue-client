@@ -4,6 +4,7 @@ import Login from '@/views/Login.vue'
 import SingIn from '@/views/SingIn.vue'
 import Home from '@/views/Home.vue'
 import Chats from '@/views/Chats.vue'
+import Contacts from '@/views/Contacts.vue'
 
 export default  [
     {
@@ -29,6 +30,14 @@ export default  [
 {
     path: '/Chats',
     component: Chats,
+    // beforeEnter: Auth,
+    meta: {
+        layout:"home"
+    }
+},
+{
+    path: '/Contacts',
+    component: Contacts,
     // beforeEnter: Auth,
     meta: {
         layout:"home"

@@ -27,6 +27,10 @@
 </template>
 <script lang="ts">
     import Vue from 'vue'
+    import { getModule } from "vuex-module-decorators";
+    import MainModule from "@/store/modules/mainModule";
+
+    const main = getModule(MainModule);
 
     export default Vue.extend({
         name: 'Login',
@@ -46,13 +50,15 @@
                     console.log("Correct");
                 }
                 if (!this.input.username) {
+                    // @ts-ignore
                     this.errors.push("El nombre es obligatorio.");
                 }
                 if (!this.input.password) {
+                     // @ts-ignore
                     this.errors.push("La contraseña es obligatoria.");
                 }
                 if (!this.errors.length) {
-                    return true;
+                    main.login(this.input.username,this.input.password)
                 }
             }
         }
