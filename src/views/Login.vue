@@ -1,9 +1,86 @@
 <template>
-    <div>this is a login view</div>
+    <div class="login-background">
+        <div id="login">
+            <p>
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" v-model="input.username" placeholder=""/>
+            </p>
+            <p>
+                <label for="password">Contraseña: </label>
+                <input type="password" id="password" name="password" v-model="input.password" placeholder=""/>
+            </p>
+            <p v-if="errors.length">
+                <b>Por favor, corrija el(los) siguiente(s) error(es):</b>
+                <ul>
+                    <li v-bind:key="error in errors" v-for="error in errors">{{ error }}</li>
+                </ul>
+            </p>
+
+            <button type="button" v-on:click="login()">Ingresar</button>
+            <br/>
+            o
+            <br/>
+            <p class="register-title">Crea una cuenta aquí</p>
+        </div>
+    </div>
 </template>
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-    
-})
+    import Vue from 'vue'
+
+    export default Vue.extend({
+        name: 'Login',
+        data() {
+            return {
+                input: {
+                    username: "",
+                    password: ""
+                },
+                errors: []
+            }
+        },
+        methods: {
+            login() {
+                this.errors= [];
+                if (this.input.username != "" && this.input.password != "") {
+                    console.log("Correct");
+                }
+                if (!this.input.username) {
+                    this.errors.push("El nombre es obligatorio.");
+                }
+                if (!this.input.password) {
+                    this.errors.push("La contraseña es obligatoria.");
+                }
+                if (!this.errors.length) {
+                    return true;
+                }
+            }
+        }
+
+    })
 </script>
+
+<style scoped>
+    #login {
+        margin: auto;
+        width: 50%;
+    }
+    input, label {
+        display:block;
+    }
+
+    .login-background {
+        width: 50%;
+        height: 55%;
+        margin: 10%;
+        padding: 10%;
+        background-color: #ececec;
+        border-radius: 50% 50% 50% 50% / 45% 45% 66% 66%;
+
+    }
+
+    .register-title {
+        text-align: center;
+    }
+
+
+</style>
