@@ -10,7 +10,7 @@ export default  [
         path: '*',
         component: P404
     },
-{
+{  
     path: '/',
     component: Login
 },

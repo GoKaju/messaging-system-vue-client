@@ -25,7 +25,7 @@
 <script lang="ts">
 import Vue from "vue";
 export default Vue.component("d-navigation-drawer", {
-  props: {
+  props: { 
     bgcolor: {
       default: "#FFFFFF"
     }
@@ -50,25 +50,22 @@ export default Vue.component("d-navigation-drawer", {
   }
 });
 </script>
-<style scoped>
-
-.navigation {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-width: 80px;
- /* background-color: rgb(7, 71, 166); */
- align-items: center;
- 
-}
+<style scoped lang="scss">
+  .navigation{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 80px;
+    align-items: center;
+  }
 .logo {
   width: 60px;
   height: 60px;
   margin-top: 20px;
   margin-bottom: 30px;
   border-radius: 10px;
-  color: #0052CC;
+  color: #0052CC; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,7 +75,6 @@ export default Vue.component("d-navigation-drawer", {
 .logo > img {
   height: 60px;
 }
-
 .spacer {
   flex: 1 1 auto;
   margin-top: 10px;
@@ -119,10 +115,6 @@ export default Vue.component("d-navigation-drawer", {
 .menu-item>img,.menu-item>svg{
     width: 30px;
 }
-.menu-item>svg:fill{
-    width: 30px;
-}
-
 .menu-item.menu-item:active{
      background-color: #f4f5f7;
 }
