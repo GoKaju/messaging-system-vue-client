@@ -100,7 +100,7 @@
         text-align: center;
 
         button {
-            background-color: #6236FF;
+            background-color: $color-primary;
             border-radius: 10px;
             height: 32px;
             width: 120px;
