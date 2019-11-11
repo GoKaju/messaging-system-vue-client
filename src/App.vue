@@ -17,8 +17,9 @@
       }
   }
 </script>
-<style >
-@import url('https://fonts.googleapis.com/css?family=McLaren&display=swap&subset=latin-ext');
+<style lang="scss" >
+
+@import url("http://fonts.googleapis.com/css?family=McLaren&display=swap&subset=latin-ext");
 
 html::-webkit-scrollbar,body::-webkit-scrollbar{
   width: 0px
@@ -31,35 +32,30 @@ html::-webkit-scrollbar,body::-webkit-scrollbar{
   border-radius: 10px;
 	background-color: transparent;
 }
-
 .scroll::-webkit-scrollbar
 {
-	width: 5px;
+	width: 6px;
 	background-color:transparent;
 }
-
 .scroll::-webkit-scrollbar-thumb
 {
   border-radius: 10px;
 	background-color: #97A0AF;
   cursor: pointer;
 }
-
 html, body, #app{
   touch-action: none;
   height:100%;
   margin:0;
   display: flex;
   flex-direction: column;
-  font-family:  'McLaren';
-
+  font-family:  'McLaren',Helvetica, Arial, sans-serif;
 }
 .all-100,.v-application--wrap{
 height: 100%;
 width: 100%;
 }
 #app {
-
   background-color: #F4F5F7;
   color: #091E42;
   align-items: center;

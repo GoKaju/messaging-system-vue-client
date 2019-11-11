@@ -1,5 +1,5 @@
 
 export default {
-    API:"",
+    API:"http://localhost:8080",
 
 }
