@@ -24,27 +24,26 @@ export default class MainModule extends VuexModule {
   }
 
 
-  @Action
+  @Action({ rawError: true })
   async login(username:string,password:string){
-    this.context.commit('setUser', {})
-    this.context.commit('setError', '') 
-    this.context.commit('setLoading', true)
+    this.setUser({})
+    this.setError('')
+    this.setLoading(true)
     
     const response=  await http.get('/user/adminPoligran', {
       // payload: {
         //     username,
         //     password
         // }
-      })
-      if(response.status !== 200){
-        this.context.commit('setError', response.data.error|| response.statusText)
-      }
-      else{
-        this.context.commit('setUser', response.data)
+      }).then(response=>{
+        this.setUser(response.data)
         router.push('/Home')
-      }
+      }).catch(response=>{
+        this.setError(response.data.error|| response.statusText)
+
+      })
       
-      this.context.commit('setLoading', false)
+    this.setLoading(false)
       router.push('/Home')
   }
 
