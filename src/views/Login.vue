@@ -11,16 +11,17 @@
             </p>
             <p v-if="errors.length">
                 <b>Por favor, corrija el(los) siguiente(s) error(es):</b>
-                <ul>
-                    <li v-bind:key="error in errors" v-for="error in errors">{{ error }}</li>
-                </ul>
+            <ul>
+                <li v-bind:key="error in errors" v-for="error in errors">{{ error }}</li>
+            </ul>
             </p>
 
-            <button type="button" v-on:click="login()">Ingresar</button>
-            <br/>
-            o
-            <br/>
-            <p class="register-title">Crea una cuenta aquí</p>
+            <div class="options">
+                <button type="button" v-on:click="login()">Ingresar</button>
+                <p> o</p>
+                <p class="register-title">Crea una cuenta aquí</p>
+            </div>
+
         </div>
     </div>
 </template>
@@ -40,7 +41,7 @@
         },
         methods: {
             login() {
-                this.errors= [];
+                this.errors = [];
                 if (this.input.username != "" && this.input.password != "") {
                     console.log("Correct");
                 }
@@ -59,13 +60,21 @@
     })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     #login {
         margin: auto;
         width: 50%;
+        input {
+            border-radius: 10px;
+            border-style: none;
+            background-color: #DFDFDF;
+            height: 28px;
+            width: 200px;
+        }
     }
+
     input, label {
-        display:block;
+        display: block;
     }
 
     .login-background {
@@ -80,6 +89,18 @@
 
     .register-title {
         text-align: center;
+    }
+    .options {
+        text-align: center;
+
+        button {
+            background-color: #6236FF;
+            border-radius: 10px;
+            height: 32px;
+            width: 120px;
+            color: #fff;
+            border-style: none;
+        }
     }
 
 
