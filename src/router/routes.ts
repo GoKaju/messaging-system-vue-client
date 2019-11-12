@@ -1,4 +1,5 @@
 
+import Auth from './Auth'
 import P404 from '@/views/P404.vue'
 import Login from '@/views/Login.vue'
 import SingIn from '@/views/SingIn.vue'
@@ -22,7 +23,7 @@ export default  [
 {
     path: '/Home',
     component: Home,
-    // beforeEnter: Auth,
+     beforeEnter: Auth,
     meta: {
         layout:"home"
     }
@@ -30,7 +31,7 @@ export default  [
 {
     path: '/Chats',
     component: Chats,
-    // beforeEnter: Auth,
+     beforeEnter: Auth,
     meta: {
         layout:"home"
     }
@@ -38,7 +39,7 @@ export default  [
 {
     path: '/Contacts',
     component: Contacts,
-    // beforeEnter: Auth,
+    beforeEnter: Auth,
     meta: {
         layout:"home"
     }

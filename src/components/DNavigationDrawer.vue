@@ -17,13 +17,17 @@
         <div class="menu-item">
      <img src="@/assets/icons/icon_setting.svg" alt="">
     </div>
-    <div class="userBtn">
+    <div class="userBtn" title="Salir" @click="logOut">
       <img src="@/assets/user-icon.svg" alt="user-icon" />
     </div>
   </div>
 </template>
 <script lang="ts">
 import Vue from "vue";
+import { getModule } from "vuex-module-decorators";
+import MainModule from "@/store/modules/mainModule";
+
+const main = getModule(MainModule);
 export default Vue.component("d-navigation-drawer", {
   props: { 
     bgcolor: {
@@ -47,6 +51,9 @@ export default Vue.component("d-navigation-drawer", {
     setpath(path:string) {
       this.$router.push(path);
     },
+    logOut(){
+      main.logOut()
+    }
   }
 });
 </script>

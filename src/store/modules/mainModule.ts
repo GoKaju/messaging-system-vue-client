@@ -64,15 +64,23 @@ export default class MainModule extends VuexModule {
       // }
     }).then(response=>{
       this.setUser(response.data)
-      router.push('/login')
+      router.push('/')
     }).catch(response=>{
       this.setError(response.data.error|| response.statusText)
 
     })
 
     this.setLoading(false)
-    router.push('/login')
+    router.push('/')
   }
+
+  @Action({ rawError: true })
+  async logOut(){
+    this.setLoading(true)
+      this.setUser({})
+      router.push('/')
+  }
+
 
 
 }

@@ -3,6 +3,8 @@
 }
 
 $color-primary: #0052CC;
+$color-success: #36B37E;
+$color-danger: #FF5630;
 
 
 .spacer {
@@ -17,12 +19,22 @@ $color-primary: #0052CC;
 // button
 .btn{
   color: white;
-  background-color: $color-primary;
   border-radius: 5px;
   margin: 5px;
   padding: 2px;
   cursor: pointer;
 }
+
 .btn:active{
   transform: scale(0.9);
 }
+.btn.success{
+    background-color: $color-success;
+  }
+  .btn.danger{
+    background-color: $color-danger;
+  }
+  .btn.primary{
+    background-color: $color-primary;
+  }
+
