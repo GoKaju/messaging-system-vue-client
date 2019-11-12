@@ -135,6 +135,10 @@
                     color: #fff;
                     font-size: 19px;
                     border-style: none;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
 
                 p {
@@ -144,6 +148,11 @@
             }
         }
 
+    }
+    .register-title {
+        &:hover {
+            cursor: pointer;
+        }
     }
 
 
