@@ -53,7 +53,7 @@
                 }
                 if (!this.input.username) {
                     // @ts-ignore
-                    this.errors.push("El nombre es obligatorio.");
+                    this.errors.push("El nombre de usuario es obligatorio.");
                 }
                 if (!this.input.password) {
                     // @ts-ignore
@@ -117,6 +117,7 @@
             .errors-detail-li {
                 font-size: 12px;
                 text-align: left;
+                color: #ff4b5c;
             }
 
             .options {
