@@ -21,7 +21,7 @@
             <div class="options">
                 <button type="button" v-on:click="login()">Ingresa</button>
                 <p> o</p>
-                <p class="register-title">Crea una cuenta aquí</p>
+                <p class="register-title" @click="goToRegister">Crea una cuenta aquí</p>
             </div>
 
         </div>
@@ -62,6 +62,9 @@
                 if (!this.errors.length) {
                     main.login(this.input.username, this.input.password)
                 }
+            },
+            goToRegister(){
+                this.$router.push('/Singin')
             }
         }
 

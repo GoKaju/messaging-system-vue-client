@@ -26,21 +26,25 @@ export default class MainModule extends VuexModule {
 
   @Action({ rawError: true })
   async login(username: string, password: string) {
-    this.setUser({})
     this.setError('')
     this.setLoading(true)
 
-
+    
     let rv = null
     try {
       http.post('/login',JSON.stringify({
         "username": "adminPoligran",
         "password": "123"
       }))
-      .then(response => (console.log(response.data)))
+      .then(response => {
+        console.log(response.data)
+        this.setUser(response.data)
+        router.push('/Home')
+      })
       .catch(error => console.log(error))
-
-           router.push('/Home')
+      
+          
+      // router.push('/Home')
           // console.log(JSON.stringify(rv.data))
           } catch (e) {
             this.setError(e.message)
