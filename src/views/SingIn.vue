@@ -51,7 +51,7 @@
             singIn() {
                 this.errors = [];
                 if (this.input.username != "" && this.input.name != "" && this.input.password != "" && this.input.password.length > 5) {
-                    main.sing(this.input.username, this.input.name, this.input.password)
+                    main.singin(this.input.username, this.input.name, this.input.password)
                 }
                 if (!this.input.username) {
                     // @ts-ignore

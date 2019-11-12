@@ -52,6 +52,7 @@ export default class MainModule extends VuexModule {
     this.setLoading(false)
   }
 
+  @Action({ rawError: true })
   async singin(username:string,name:string,password:string){
     this.setLoading(true)
 
