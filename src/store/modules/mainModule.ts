@@ -48,5 +48,26 @@ export default class MainModule extends VuexModule {
     this.setLoading(false)
   }
 
+  async singin(username:string,name:string,password:string){
+    this.setLoading(true)
+
+    const response=  await http.get('/user/adminPoligran', {
+      // payload: {
+      //     username,
+      // name
+      //     password
+      // }
+    }).then(response=>{
+      this.setUser(response.data)
+      router.push('/login')
+    }).catch(response=>{
+      this.setError(response.data.error|| response.statusText)
+
+    })
+
+    this.setLoading(false)
+    router.push('/login')
+  }
+
 
 }
