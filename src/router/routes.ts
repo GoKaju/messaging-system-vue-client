@@ -1,5 +1,6 @@
 
 import Auth from './Auth'
+
 import P404 from '@/views/P404.vue'
 import Login from '@/views/Login.vue'
 import SingIn from '@/views/SingIn.vue'

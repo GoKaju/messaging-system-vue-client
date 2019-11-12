@@ -7,8 +7,8 @@ const main = getModule(MainModule);
 // if it does check whether the user is signed into the web app or
 // redirect to the sign-in page to enable them to sign-in
 
-export default (to:any, from:any, next:any) => {
-    console.log(main.user)
+export default (next:any) => {
+   // console.log(main.user)
     // @ts-ignore
     if (main.user&& main.user.username) {
         next();

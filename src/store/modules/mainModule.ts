@@ -37,11 +37,11 @@ export default class MainModule extends VuexModule {
         "password": "123"
       }))
       .then(response => {
-        console.log(response.data)
+        // console.log(response.data)
         this.setUser(response.data)
         router.push('/Home')
       })
-      .catch(error => console.log(error))
+      .catch(error => this.setError(error))
       
           
       // router.push('/Home')
