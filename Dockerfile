@@ -1,29 +1,21 @@
-FROM node:11.1-alpine as develop-stage
+# base image
+FROM node:12.2.0-alpine
 
-# instalar un simple servidor http para servir nuestro contenido estático
-# RUN npm i npm@latest -g
-RUN npm install -g http-server
-
-
-# hacer la carpeta 'app' el directorio de trabajo actual
+# set working directory
 WORKDIR /app
 
-# copiar 'package.json' y 'package-lock.json' (si están disponibles)
-COPY package*.json ./
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
-# instalar dependencias del proyecto
-RUN npm install --no-optional
-
-# copiar los archivos y carpetas del proyecto al directorio de trabajo actual (es decir, la carpeta 'app')
+# install and cache app dependencies
+COPY package.json /app/package.json
+RUN npm install
+RUN npm install @vue/cli@3.7.0 -g
 COPY . .
-
-# construir aplicación para producción minificada
-RUN npm run build
-
-EXPOSE 8080
-CMD [ "http-server", "dist" ]
+# start app
+CMD ["npm", "run", "serve"]
 
 
 #comands
-# docker build -t messaging-system-vue-client .
-# docker run -it -p 8088:8088 --rm --name dockerize-messaging-system-vue-client  messaging-system-vue-client
+# docker build -t messaging-system-vue-client:dev .
+# docker run -it -p 8088:8080 --rm --name dockerize-messaging-system-vue-client  messaging-system-vue-client:dev
