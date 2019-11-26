@@ -43,11 +43,16 @@ node {
 
     }
 
+   stage('delete last Docker Container') {
+        
+       sh "docker rm dockerize-messaging-system-vue-client"
+     }
     stage('Build Docker Image') {
         
        sh "docker build -t messaging-system-vue-client:dev ."
      }
     stage('Run Docker Image') {
+      
        sh "docker run -d -p 8088:8080 --rm --name dockerize-messaging-system-vue-client  messaging-system-vue-client:dev "
      }
     
