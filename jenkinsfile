@@ -45,7 +45,7 @@ node {
 
    stage('delete last Docker Container') {
         
-       sh "docker rm dockerize-messaging-system-vue-client"
+       sh "docker rm -f dockerize-messaging-system-vue-client"
      }
     stage('Build Docker Image') {
         
