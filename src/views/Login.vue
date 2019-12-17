@@ -1,7 +1,6 @@
 <template>
     <div class="login-background">
         <div id="login">
-            Chappie
             <div class="fields">
                 <p>
                     <label for="username">Usuario:</label>
