@@ -1,6 +1,7 @@
 <template>
     <div class="login-background">
         <div id="login">
+            <h1>Chappie v - 0.1</h1>
             <div class="fields">
                 <p>
                     <label for="username">Usuario:</label>
