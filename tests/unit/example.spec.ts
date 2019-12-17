@@ -16,7 +16,7 @@ describe("DFriendCard.vue", () => {
   it("renders props.msg when passed", () => {
     const username = "username";
     const name = "name";
-    const wrapper = shallowMount(HelloWorld, {
+    const wrapper = shallowMount(DFriendCard, {
       propsData: { username, name }
     });
     expect(wrapper.text()).to.include(username);
