@@ -1,22 +1,17 @@
-language: node_js
+language: node_js # (1)
 node_js:
-  - "8"
+  - "node"
 
 services:
-  - docker
-
-before_install:
-  # login to docker registries (dockerhub + heroku)
-  echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-
-install: npm i
-script:
-  npm run test:unit
-  # build docker images
-   docker build -t cipoli/chatppie_front .
-#deploy:
-#provider: script
-#script:
-# push to dockerhub
-#docker push cipoli/chatppie-front;
-#branch: develop
+  - docker # (2)
+  jobs:
+    include:
+      - stage: test
+        script:
+          - npm install # (3)
+          - npm testest:unit # (4)
+      - stage: docker-deploy-image # (5)
+        script:
+          - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin 
+          - docker build -t cipoli/chatppie_front .
+          - docker push cipoli/chatppie_front
