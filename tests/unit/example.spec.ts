@@ -13,13 +13,20 @@ describe("HelloWorld.vue", () => {
   });
 });
 describe("DFriendCard.vue", () => {
-  it("renders props.msg when passed", () => {
+  it("renders props.username when passed", () => {
     const username = "username";
-    const name = "name";
     const wrapper = shallowMount(DFriendCard, {
-      propsData: { username, name }
+      propsData: { username }
     });
     expect(wrapper.text()).to.include(username);
+  });
+});
+describe("DFriendCard.vue", () => {
+  it("renders props.name when passed", () => {
+    const name = "name";
+    const wrapper = shallowMount(DFriendCard, {
+      propsData: { name }
+    });
     expect(wrapper.text()).to.include(name);
   });
 });

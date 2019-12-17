@@ -5,5 +5,20 @@ node_js:
 services:
   - docker
 
+before_install:
+  # login to docker registries (dockerhub + heroku)
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+
 install: npm i
-script: npm run test:unit
+script: 
+  npm run test:unit
+  # build docker images
+  - docker build -t cipoli/chatppie-front .
+
+deploy:
+  provider: script
+  script:
+    # push to dockerhub
+    docker push cipoli/chatppie-front;
+  branch: develop
