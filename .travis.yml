@@ -8,7 +8,7 @@ jobs:
     - stage: test
       script:
         - npm install # (3)
-        - npm testest:unit # (4)
+        - npm test:unit # (4)
     - stage: docker-deploy-image # (5)
       script:
         - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
