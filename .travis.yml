@@ -7,13 +7,13 @@ services:
 
 before_install:
   # login to docker registries (dockerhub + heroku)
-  #- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 install: npm i
 script:
   npm run test:unit
   # build docker images
-  - docker build -t cipoli/chatppie-front .
+  #- docker build -t cipoli/chatppie-front .
 #deploy:
 #provider: script
 #script:
