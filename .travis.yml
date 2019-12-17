@@ -13,7 +13,7 @@ install: npm i
 script:
   npm run test:unit
   # build docker images
-   docker build -t cipoli/chatppie-front .
+   docker build -t cipoli/chatppie_front .
 #deploy:
 #provider: script
 #script:
