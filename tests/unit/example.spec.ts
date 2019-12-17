@@ -30,3 +30,12 @@ describe("DFriendCard.vue", () => {
     expect(wrapper.text()).to.include(name);
   });
 });
+describe("DFriendCard.vue", () => {
+  it("renders props.name when passed", () => {
+    const name = "name";
+    const wrapper = shallowMount(DFriendCard, {
+      propsData: { name }
+    });
+    expect(wrapper.text()).to.include(name);
+  });
+});
